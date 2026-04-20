@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyOrlandoStay — Guest Stories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg:             #1C1208;
+      --card-bg:        #221609;
+      --card-border:    #6B4C2A;
+      --gold:           #C9A84C;
+      --gold-light:     #D4956A;
+      --text-white:     #F0E6D3;
+      --text-muted:     #8A7A62;
+      --text-source:    #6B5C42;
+      --divider:        #3D2E10;
+      --font:           'Cormorant Garamond', Georgia, serif;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: var(--font);
+      margin: 0;
+      padding: 0;
+      width: 1440px;
+    }
+
+    /* ── Section ── */
+    .guest-stories-section {
+      background: var(--bg);
+      width: 1440px;
+      padding: 80px 80px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-line {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    /* ── Heading ── */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.1;
+    }
+
+    .heading-line1 {
+      display: block;
+      font-size: 76px;
+      font-weight: 500;
+      color: var(--text-white);
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+    }
+
+    .heading-line2 {
+      display: block;
+      font-size: 76px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold-light);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    /* ── Rating Badge ── */
+    .rating-badge {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid var(--card-border);
+      padding: 18px 40px;
+      margin-bottom: 72px;
+    }
+
+    .rating-number {
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .rating-right {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stars-row {
+      display: flex;
+      gap: 5px;
+    }
+
+    .star {
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+    }
+
+    .star svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .rating-label {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* ── Featured Review Card ── */
+    .featured-card-wrapper {
+      width: 100%;
+      border: 1px solid var(--card-border);
+      border-bottom: none;
+      padding: 72px 100px 80px;
+      background: var(--card-bg);
+      position: relative;
+    }
+
+    /* Large decorative quotation mark */
+    .deco-quote {
+      position: absolute;
+      top: 48px;
+      right: 80px;
+      font-size: 260px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--card-border);
+      opacity: 0.35;
+      line-height: 1;
+      pointer-events: none;
+      font-family: var(--font);
+      user-select: none;
+    }
+
+    /* Stars inside card */
+    .card-stars {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 32px;
+    }
+
+    /* Review layout: avatar left, content right */
+    .review-body {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+    }
+
+    .avatar-col {
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1.5px solid var(--card-border);
+      background: #2A1A08;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .content-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .review-quote {
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-white);
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+
+    /* Reviewer info row */
+    .reviewer-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .reviewer-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-right: 32px;
+    }
+
+    .reviewer-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-white);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .reviewer-meta {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    .reviewer-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--divider);
+      margin-right: 32px;
+    }
+
+    .verified-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .verified-icon {
+      width: 14px;
+      height: 14px;
+      color: var(--gold);
+    }
+
+    .verified-text {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+
+<section class="guest-stories-section">
+
+  <!-- Eyebrow -->
+  <div class="eyebrow">
+    <div class="eyebrow-line"></div>
+    <span class="eyebrow-text">Guest Stories</span>
+    <div class="eyebrow-line"></div>
+  </div>
+
+  <!-- Heading -->
+  <div class="section-heading">
+    <span class="heading-line1">What Our Guests Have</span>
+    <span class="heading-line2">To Say About Us</span>
+  </div>
+
+  <!-- Rating Badge -->
+  <div class="rating-badge">
+    <span class="rating-number">4.9</span>
+    <div class="rating-right">
+      <div class="stars-row">
+        <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+        <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+        <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+        <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+        <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+      </div>
+      <span class="rating-label">Based on 120+ Reviews</span>
+    </div>
+  </div>
+
+  <!-- Featured Review Card -->
+  <div class="featured-card-wrapper">
+
+    <!-- Decorative quote mark -->
+    <div class="deco-quote">"</div>
+
+    <!-- 5 stars -->
+    <div class="card-stars">
+      <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+      <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+      <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+      <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+      <span class="star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.447a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.951 2.677c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z"/></svg></span>
+    </div>
+
+    <!-- Avatar + Quote -->
+    <div class="review-body">
+      <div class="avatar-col">
+        <div class="avatar">Sarah M.</div>
+      </div>
+      <div class="content-col">
+        <p class="review-quote">"Absolutely incredible stay. The townhome was spotless, spacious, and felt like a real home — not a hotel. Being just minutes from Disney made everything so effortless. We didn't want to leave."</p>
+        <div class="reviewer-row">
+          <div class="reviewer-details">
+            <span class="reviewer-name">Sarah M.</span>
+            <span class="reviewer-meta">Family of 4 · Orlando, FL · June 2024</span>
+          </div>
+          <div class="reviewer-divider"></div>
+          <div class="verified-badge">
+            <svg class="verified-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+            </svg>
+            <span class="verified-text">Verified Stay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /featured-card-wrapper -->
+
+</section>
+
+</body>
+</html>
