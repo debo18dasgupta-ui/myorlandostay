@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forte — Logo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #E8E5E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .logo-mark {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    /* Top half of diamond — bars point upward from a baseline */
+    .wave-top {
+      display: block;
+    }
+
+    /* Brand name sits in the gap between top and bottom halves */
+    .brand-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 72px;
+      font-weight: 300;
+      letter-spacing: 0.30em;
+      color: #1A1A1A;
+      text-transform: uppercase;
+      line-height: 1;
+      padding: 0 24px;
+      display: block;
+      text-align: center;
+      /* Slight negative margin so name feels snug between the two halves */
+      margin: -6px 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Bottom half — bars point downward */
+    .wave-bottom {
+      display: block;
+      transform: scaleY(-1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="logo-mark">
+
+  <!-- TOP half of diamond (bars grow upward) -->
+  <svg class="wave-top" width="560" height="120" viewBox="0 0 560 120" xmlns="http://www.w3.org/2000/svg">
+    <g id="bars-top"></g>
+  </svg>
+
+  <!-- Forte cuts through the middle -->
+  <span class="brand-name">Forte</span>
+
+  <!-- BOTTOM half of diamond (flipped) -->
+  <svg class="wave-bottom" width="560" height="120" viewBox="0 0 560 120" xmlns="http://www.w3.org/2000/svg">
+    <g id="bars-bottom"></g>
+  </svg>
+
+</div>
+
+<script>
+  function drawHalf(groupId) {
+    const g = document.getElementById(groupId);
+
+    const totalBars = 70;
+    const svgW = 560;
+    const svgH = 120;
+    const baseline = svgH; // bars grow upward from bottom edge
+
+    const barW = 2.8;
+    const gap = 5.0;
+    const totalW = totalBars * (barW + gap) - gap;
+    const startX = (svgW - totalW) / 2;
+
+    const maxH = 112; // tallest bar at center
+    const minH = 1.5; // shortest at edges
+
+    for (let i = 0; i < totalBars; i++) {
+      const t = (i / (totalBars - 1)) * 2 - 1; // -1 to 1
+      const env = Math.sin(Math.PI * (1 - Math.abs(t))); // smooth diamond curve
+
+      const barH = minH + env * (maxH - minH);
+      const x = startX + i * (barW + gap);
+      const y = baseline - barH;
+
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', x.toFixed(2));
+      rect.setAttribute('y', y.toFixed(2));
+      rect.setAttribute('width', barW);
+      rect.setAttribute('height', barH.toFixed(2));
+      rect.setAttribute('rx', '1.4');
+      rect.setAttribute('fill', '#1A1A1A');
+      rect.setAttribute('opacity', (0.18 + env * 0.82).toFixed(2));
+
+      g.appendChild(rect);
+    }
+  }
+
+  drawHalf('bars-top');
+  drawHalf('bars-bottom');
+</script>
+
+</body>
+</html>
