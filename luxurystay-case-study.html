@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxuryStay — UX Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --dark: #1a1510;
+    --dark-brown: #2c2118;
+    --gold: #c9a96e;
+    --gold-light: #d4b885;
+    --mid-brown: #6b5040;
+    --text-body: #3a2e24;
+    --text-muted: #7a6a58;
+    --border: #e0d8cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--text-body);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 72vh;
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 72px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .case-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 500;
+    line-height: 0.95;
+    color: var(--dark);
+    margin-top: 32px;
+  }
+
+  .hero-title span {
+    color: var(--gold);
+  }
+
+  .hero-tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--mid-brown);
+    max-width: 300px;
+    margin-top: 20px;
+    line-height: 1.7;
+  }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-item label {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .meta-item p {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-body);
+    line-height: 1.4;
+  }
+
+  .hero-right {
+    position: relative;
+    background: var(--dark);
+    overflow: hidden;
+  }
+
+  .hero-mockup-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2c1f12 0%, #1a1008 50%, #0d0a06 100%);
+  }
+
+  .hero-screens {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .laptop-frame {
+    width: 85%;
+    background: #1a1510;
+    border-radius: 12px 12px 4px 4px;
+    padding: 6px 6px 0;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  }
+
+  .laptop-screen {
+    background: linear-gradient(160deg, #3d2d1a 0%, #1f1508 100%);
+    border-radius: 8px 8px 0 0;
+    padding: 16px;
+    aspect-ratio: 16/10;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .screen-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .screen-nav span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 8px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.1em;
+  }
+
+  .screen-hero-img {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(160deg, #8b6340 0%, #4a2e0e 50%, #2a1a08 100%);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .screen-hero-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.3) 0%, transparent 60%);
+  }
+
+  .screen-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .screen-tagline {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 7px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .screen-search {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+    padding: 6px 10px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .search-pill {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 6px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .phone-frame {
+    position: absolute;
+    right: -20px;
+    bottom: 20px;
+    width: 68px;
+    background: #1a1510;
+    border-radius: 8px;
+    padding: 4px;
+    box-shadow: -8px 16px 40px rgba(0,0,0,0.5);
+  }
+
+  .phone-screen {
+    background: linear-gradient(160deg, #3d2d1a 0%, #1f1508 100%);
+    border-radius: 6px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    overflow: hidden;
+  }
+
+  .phone-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.04em;
+  }
+
+  .phone-img {
+    flex: 1;
+    background: linear-gradient(160deg, #6b4826 0%, #2a1a08 100%);
+    border-radius: 3px;
+    margin-top: 4px;
+    display: flex;
+    align-items: flex-end;
+    padding: 4px;
+  }
+
+  .phone-img span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6px;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    padding: 96px 80px;
+  }
+
+  .section-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 48px;
+  }
+
+  .section-num {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    color: var(--gold);
+  }
+
+  /* ─── STORY SECTION ─── */
+  .story-section {
+    background: var(--cream);
+    padding: 96px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .story-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--dark);
+  }
+
+  .story-heading em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .story-body {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    padding-top: 8px;
+  }
+
+  .leaf-decoration {
+    width: 80px;
+    opacity: 0.3;
+    margin-top: 32px;
+    margin-left: auto;
+  }
+
+  /* ─── PROBLEM + PROCESS ─── */
+  .two-col-dark {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .problem-panel {
+    background: var(--dark-brown);
+    padding: 72px 56px;
+    color: var(--cream);
+  }
+
+  .problem-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3.5vw, 46px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+
+  .problem-body {
+    font-size: 13px;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.8;
+    max-width: 320px;
+  }
+
+  .process-panel {
+    background: var(--warm-white);
+    padding: 72px 56px;
+  }
+
+  .process-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-top: 24px;
+    margin-bottom: 20px;
+  }
+
+  .process-body {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 320px;
+  }
+
+  .sketch-placeholder {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .sketch-box {
+    flex: 1;
+    aspect-ratio: 4/3;
+    background: #e8e0d4;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sketch-box::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 2px;
+  }
+
+  .sketch-inner {
+    width: 60%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    opacity: 0.4;
+  }
+
+  .sketch-inner div {
+    background: var(--mid-brown);
+    border-radius: 1px;
+  }
+
+  /* ─── WIREFRAMES + VISUAL EXPLORATION ─── */
+  .wireframes-section {
+    background: var(--warm-white);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .wireframe-panel {
+    display: flex;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .wireframe-visual {
+    width: 120px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .wf-row {
+    height: 8px;
+    background: var(--dark);
+    border-radius: 1px;
+    opacity: 0.15;
+  }
+
+  .wf-row.tall { height: 32px; }
+  .wf-row.medium { height: 20px; }
+  .wf-row.short { width: 70%; }
+  .wf-row.half { width: 50%; }
+
+  .wireframe-content p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 8px;
+  }
+
+  .feature-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: var(--gold);
+  }
+
+  .feature-text h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .feature-text p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .visual-panel { }
+
+  .visual-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--dark);
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .visual-heading em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .visual-body {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .screen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .screen-thumb {
+    aspect-ratio: 4/3;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .screen-thumb.dark-v {
+    background: linear-gradient(160deg, #2c1f12 0%, #0d0a06 100%);
+  }
+
+  .screen-thumb.gold-v {
+    background: linear-gradient(160deg, #b8860b 0%, #4a2e0e 100%);
+  }
+
+  .screen-thumb.mid-v {
+    background: linear-gradient(160deg, #4a3520 0%, #1a1008 100%);
+  }
+
+  .screen-thumb-logo {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.03em;
+  }
+
+  .screen-thumb-bar {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    background: rgba(201,169,110,0.4);
+    border-radius: 2px;
+  }
+
+  .screen-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 40%, rgba(201,169,110,0.2) 0%, transparent 60%);
+  }
+
+  /* ─── FINAL DESIGN ─── */
+  .final-section {
+    background: var(--cream);
+    padding: 96px 80px;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .final-left { }
+
+  .final-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.5vw, 48px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+
+  .final-heading em {
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+  }
+
+  .outcomes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .outcome-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .outcome-item:last-child {
+    border-bottom: none;
+  }
+
+  .outcome-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 16px;
+  }
+
+  .outcome-text h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .outcome-text p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .final-screens {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .final-screen {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(26,21,16,0.15);
+  }
+
+  .final-screen-inner {
+    aspect-ratio: 9/16;
+    background: linear-gradient(160deg, #2c1f12 0%, #0d0a06 100%);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-screen-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(201,169,110,0.15) 0%, transparent 50%);
+  }
+
+  .fs-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.04em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fs-img {
+    flex: 0 0 60px;
+    background: linear-gradient(160deg, #6b4826 0%, #2a1a08 100%);
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fs-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fs-line {
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+  }
+
+  .fs-line.short { width: 60%; }
+  .fs-line.gold { background: rgba(201,169,110,0.35); width: 80%; }
+
+  .fs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-top: 2px;
+    flex: 1;
+  }
+
+  .fs-grid div {
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+  }
+
+  /* ─── REFLECTION ─── */
+  .reflection-section {
+    background: var(--dark);
+    padding: 96px 80px;
+    color: var(--cream);
+  }
+
+  .reflection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    align-items: start;
+  }
+
+  .reflection-item h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .reflection-item h3::before {
+    content: '★';
+    font-size: 8px;
+  }
+
+  .reflection-item:nth-child(2) h3::before { content: '◉'; }
+  .reflection-item:nth-child(3) h3::before { content: '◈'; }
+
+  .reflection-item p {
+    font-size: 13px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.8;
+  }
+
+  .reflection-quote {
+    background: rgba(201,169,110,0.08);
+    border-left: 2px solid var(--gold);
+    padding: 28px 24px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .reflection-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(245,240,232,0.85);
+    line-height: 1.7;
+  }
+
+  /* ─── REFLECTION HEADING ─── */
+  .reflection-top {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .reflection-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    color: var(--cream);
+  }
+
+  .reflection-heading em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--dark-brown);
+    padding: 40px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+
+  @media (max-width: 900px) {
+    .hero, .story-section, .two-col-dark, .wireframes-section,
+    .final-section, .reflection-grid { grid-template-columns: 1fr; }
+    .section, .story-section, .wireframes-section, .final-section,
+    .reflection-section { padding: 64px 32px; }
+    .footer { flex-direction: column; gap: 16px; text-align: center; }
+    .hero-right { min-height: 300px; }
+    .final-screens { grid-template-columns: 1fr 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="case-label">UX Case Study</span>
+
+    <div>
+      <h1 class="hero-title">Luxury<span>Stay</span></h1>
+      <p class="hero-tagline">Designing a luxury stay booking experience that feels immersive, cinematic, and emotionally aspirational.</p>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <label>Role</label>
+        <p>UX/UI Designer</p>
+      </div>
+      <div class="meta-item">
+        <label>Tools</label>
+        <p>Figma<br>Fgm</p>
+      </div>
+      <div class="meta-item">
+        <label>Focus</label>
+        <p>Hospitality / Editorial UX / Responsive Design</p>
+      </div>
+      <div class="meta-item">
+        <label>Timeline</label>
+        <p>4 Weeks</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-mockup-bg"></div>
+    <div class="hero-screens">
+      <div style="position:relative; width:100%;">
+        <div class="laptop-frame">
+          <div class="laptop-screen">
+            <div class="screen-nav">
+              <span>Menu</span>
+              <span>luxurystay</span>
+              <span>Login</span>
+            </div>
+            <div class="screen-hero-img">
+              <div>
+                <div class="screen-logo">luxurystay</div>
+                <div class="screen-tagline">Find A Perfect Vacation In Luxury Getaway</div>
+              </div>
+              <div class="screen-thumb-overlay"></div>
+            </div>
+            <div class="screen-search">
+              <span class="search-pill">Room Type</span>
+              <span class="search-pill">Check-in</span>
+              <span class="search-pill">Check-out</span>
+              <span class="search-pill">Guests</span>
+            </div>
+          </div>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-logo">luxurystay</div>
+            <div class="phone-img">
+              <span>The Comfort<br>You Deserve</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 01 THE STORY ─── -->
+<section class="story-section">
+  <div>
+    <div class="section-label"><span class="section-num">01</span> The Story</div>
+    <h2 class="story-heading">Booking a stay should feel like entering the <em>experience</em> before arriving.</h2>
+  </div>
+  <div>
+    <p class="story-body">LuxuryStay explores how a travel booking website can move beyond basic listings and filters to create a more emotional, visual, and premium discovery experience.</p>
+    <svg class="leaf-decoration" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 10 C60 20, 75 50, 40 110" stroke="#6b5040" stroke-width="1" fill="none"/>
+      <path d="M40 30 C30 25, 15 35, 25 55" stroke="#6b5040" stroke-width="0.8" fill="none"/>
+      <path d="M40 50 C50 45, 65 55, 58 72" stroke="#6b5040" stroke-width="0.8" fill="none"/>
+      <path d="M40 70 C32 67, 20 74, 26 88" stroke="#6b5040" stroke-width="0.8" fill="none"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ─── 02 PROBLEM + 03 PROCESS ─── -->
+<div class="two-col-dark">
+  <div class="problem-panel">
+    <div class="section-label" style="color:rgba(245,240,232,0.4)"><span class="section-num">02</span> The Problem</div>
+    <h2 class="problem-heading">Most hotel booking websites feel functional but emotionally flat.</h2>
+    <p class="problem-body">They help users compare rooms, but they rarely help users imagine the mood, comfort, and lifestyle of the stay.</p>
+  </div>
+  <div class="process-panel">
+    <div class="section-label"><span class="section-num">03</span> The Process</div>
+    <h2 class="process-heading">Mapping the experience before styling it</h2>
+    <p class="process-body">I started with rough notes and low-fidelity wireframes to understand the page hierarchy, booking flow, and storytelling rhythm.</p>
+    <div class="sketch-placeholder">
+      <div class="sketch-box">
+        <div class="sketch-inner">
+          <div></div><div></div><div></div><div style="grid-column:span 2"></div>
+        </div>
+      </div>
+      <div class="sketch-box" style="background:#d0c8bc;">
+        <div class="sketch-inner" style="grid-template-columns:1fr 1fr 1fr;">
+          <div></div><div></div><div></div><div style="grid-column:span 3; height:2px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 04 WIREFRAMES + 05 VISUAL EXPLORATION ─── -->
+<section class="wireframes-section">
+  <div>
+    <div class="section-label"><span class="section-num">04</span> Wireframes</div>
+
+    <div class="wireframe-panel">
+      <div class="wireframe-visual">
+        <div class="wf-row tall" style="opacity:0.2"></div>
+        <div class="wf-row" style="width:80%; opacity:0.12; margin-top:4px;"></div>
+        <div class="wf-row medium" style="opacity:0.18; margin-top:2px;"></div>
+        <div class="wf-row short" style="opacity:0.1; margin-top:2px;"></div>
+        <div class="wf-row" style="opacity:0.08; margin-top:4px;"></div>
+        <div class="wf-row medium" style="opacity:0.14; margin-top:2px;"></div>
+        <div class="wf-row half" style="opacity:0.1; margin-top:2px;"></div>
+        <div class="wf-row" style="opacity:0.08; margin-top:4px;"></div>
+        <div class="wf-row tall" style="opacity:0.16; margin-top:2px;"></div>
+        <div class="wf-row" style="opacity:0.1; margin-top:4px;"></div>
+        <div class="wf-row medium" style="opacity:0.12; margin-top:2px;"></div>
+      </div>
+      <div class="wireframe-content">
+        <p>Low-fidelity wireframes helped me focus on structure, hierarchy, and user flow before visual design.</p>
+      </div>
+    </div>
+
+    <div class="features-list" style="margin-top: 40px;">
+      <div class="feature-item">
+        <div class="feature-icon">⛰</div>
+        <div class="feature-text">
+          <h4>Immersive hero section</h4>
+          <p>A large visual space to create the first emotional connection.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">◎</div>
+        <div class="feature-text">
+          <h4>Simplified booking search</h4>
+          <p>Easy-to-scan booking bar for a smooth planning experience.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⊞</div>
+        <div class="feature-text">
+          <h4>Story-led content blocks</h4>
+          <p>Content sections that build trust and inspire users to explore more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="visual-panel">
+    <div class="section-label"><span class="section-num">05</span> Visual Exploration</div>
+    <h2 class="visual-heading">Finding the right <em>mood</em></h2>
+    <p class="visual-body">I explored different visual directions — from lighter hospitality layouts to darker, warmer, more cinematic compositions. The final direction leaned into deep browns, warm gold, and large imagery to feel more premium.</p>
+    <div class="screen-grid">
+      <div class="screen-thumb dark-v">
+        <div class="screen-thumb-overlay"></div>
+        <div class="screen-thumb-logo">luxurystay</div>
+        <div class="screen-thumb-bar"></div>
+      </div>
+      <div class="screen-thumb" style="background: linear-gradient(160deg, #8f8f8f 0%, #4a4a4a 100%);">
+        <div class="screen-thumb-overlay"></div>
+        <div class="screen-thumb-logo" style="color:rgba(255,255,255,0.8)">luxurystay</div>
+        <div class="screen-thumb-bar"></div>
+      </div>
+      <div class="screen-thumb gold-v">
+        <div class="screen-thumb-overlay"></div>
+        <div class="screen-thumb-logo">luxurystay</div>
+        <div class="screen-thumb-bar"></div>
+      </div>
+      <div class="screen-thumb mid-v">
+        <div class="screen-thumb-overlay"></div>
+        <div class="screen-thumb-logo">luxurystay</div>
+        <div class="screen-thumb-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 06 FINAL DESIGN ─── -->
+<section class="final-section">
+  <div class="final-left">
+    <div class="section-label"><span class="section-num">06</span> The Final Design</div>
+    <h2 class="final-heading">A cinematic experience that <em>inspires</em> and simplifies.</h2>
+
+    <div class="outcomes-list">
+      <div class="outcome-item">
+        <div class="outcome-icon">⊡</div>
+        <div class="outcome-text">
+          <h4>Hero Storytelling</h4>
+          <p>Large visuals and minimal text create an instant emotional impact.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">♡</div>
+        <div class="outcome-text">
+          <h4>Curated Discovery</h4>
+          <p>Rooms, amenities, and spaces presented in an editorial, easy-to-browse way.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">◇</div>
+        <div class="outcome-text">
+          <h4>Trust &amp; Comfort</h4>
+          <p>Reviews, facilities, and host information build confidence at every step.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-icon">◎</div>
+        <div class="outcome-text">
+          <h4>Location &amp; Access</h4>
+          <p>Clear location section and map help users feel oriented and informed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-screens">
+    <div class="final-screen">
+      <div class="final-screen-inner">
+        <div class="fs-logo">luxurystay</div>
+        <div class="fs-img"></div>
+        <div class="fs-content">
+          <div class="fs-line gold"></div>
+          <div class="fs-line"></div>
+          <div class="fs-line short"></div>
+          <div class="fs-grid">
+            <div></div><div></div><div></div><div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="final-screen">
+      <div class="final-screen-inner" style="background: linear-gradient(160deg, #3a2a18 0%, #1a1008 100%);">
+        <div class="fs-logo" style="font-size:7px; color:rgba(255,255,255,0.6); font-family:'Cormorant Garamond',serif; font-style:italic;">Thranige of the Daze</div>
+        <div class="fs-grid" style="grid-template-columns:1fr 1fr 1fr; flex:0 0 90px; margin-top:8px;">
+          <div style="background:rgba(255,255,255,0.08)"></div>
+          <div style="background:rgba(255,255,255,0.08)"></div>
+          <div style="background:rgba(255,255,255,0.08)"></div>
+        </div>
+        <div class="fs-content">
+          <div class="fs-line gold"></div>
+          <div class="fs-line"></div>
+          <div class="fs-line short"></div>
+          <div style="height:32px; background:rgba(255,255,255,0.04); border-radius:2px; margin-top:4px; display:flex; align-items:center; justify-content:center;">
+            <span style="font-family:'Cormorant Garamond',serif; font-size:6px; color:rgba(255,255,255,0.4); font-style:italic;">We Do Care to Have<br>a Very Memorable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="final-screen">
+      <div class="final-screen-inner" style="background: linear-gradient(160deg, #2a2220 0%, #120f0d 100%);">
+        <div class="fs-logo" style="font-size:7px;">So, Visit Us!</div>
+        <div style="flex:0 0 48px; background:rgba(255,255,255,0.06); border-radius:3px; margin-top:6px; display:flex; align-items:center; justify-content:center; position:relative;">
+          <div style="width:8px; height:8px; background:var(--gold); border-radius:50%; opacity:0.8; position:relative; z-index:1;"></div>
+          <div style="position:absolute; inset:0; background: repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(255,255,255,0.03) 6px, rgba(255,255,255,0.03) 7px), repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(255,255,255,0.03) 6px, rgba(255,255,255,0.03) 7px);"></div>
+        </div>
+        <div class="fs-content">
+          <div class="fs-line gold"></div>
+          <div class="fs-line short"></div>
+          <div class="fs-line" style="margin-top:4px;"></div>
+          <div class="fs-line short" style="opacity:0.06;"></div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:6px; display:flex; justify-content:center; gap:6px; margin-top:auto;">
+          <div style="width:12px; height:12px; border:1px solid rgba(255,255,255,0.15); border-radius:2px;"></div>
+          <div style="width:12px; height:12px; border:1px solid rgba(255,255,255,0.15); border-radius:2px;"></div>
+          <div style="width:12px; height:12px; border:1px solid rgba(255,255,255,0.15); border-radius:2px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 07 REFLECTION ─── -->
+<section class="reflection-section">
+  <div class="reflection-top">
+    <div class="section-label" style="color:rgba(245,240,232,0.4)"><span class="section-num">07</span> Reflection</div>
+  </div>
+  <h2 class="reflection-heading">What I <em>learned</em></h2>
+
+  <div class="reflection-grid">
+    <div class="reflection-item">
+      <h3>Less is more.</h3>
+      <p>Luxury UX is not about adding more details. It is about creating the right pacing, restraint, and emotional atmosphere.</p>
+    </div>
+    <div class="reflection-item">
+      <h3>Visuals lead the emotion.</h3>
+      <p>The right imagery, color, and typography help users imagine the experience before they even book it.</p>
+    </div>
+    <div class="reflection-item">
+      <h3>Design with intention.</h3>
+      <p>Every section was designed with a purpose — to inform, to build trust, or to inspire exploration.</p>
+    </div>
+    <div class="reflection-quote">
+      <p>This project strengthened my belief that good design doesn't just help users book a stay, it helps them feel it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-logo">Luxury<span>Stay</span></div>
+  <div class="footer-text">UX Case Study &nbsp;·&nbsp; 4 Weeks &nbsp;·&nbsp; Figma</div>
+</footer>
+
+</body>
+</html>
