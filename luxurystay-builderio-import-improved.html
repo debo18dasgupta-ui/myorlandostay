@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LuxuryStay — Builder.io Import</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#3D2E10;
+  --bg-deep:#130D06;
+  --panel:#24180B;
+  --panel-soft:#3A2714;
+  --gold:#D9A85D;
+  --gold-bright:#F0C36B;
+  --copper:#B66A3B;
+  --cream:#FFF4E4;
+  --muted:#CDBDA6;
+  --dim:#8F7B62;
+  --line:rgba(217,168,93,.25);
+  --line-soft:rgba(255,244,228,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--cream);font-family:Inter,Arial,sans-serif}
+body{min-width:1200px}
+
+.page{
+  width:1440px;
+  margin:0 auto;
+  background:
+    radial-gradient(circle at 18% 5%, rgba(217,168,93,.16), transparent 28%),
+    radial-gradient(circle at 82% 25%, rgba(94,54,20,.34), transparent 34%),
+    linear-gradient(180deg,#3D2E10 0%,#2D1E0C 42%,#120C06 100%);
+  overflow:hidden;
+}
+
+/* ---------- TEAM SECTION ---------- */
+.team-section{
+  min-height:595px;
+  display:grid;
+  grid-template-columns:370px 1fr;
+  gap:44px;
+  padding:58px 64px 52px;
+  border-bottom:1px solid var(--line);
+}
+
+.kicker{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:12px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--gold-bright);
+  font-weight:600;
+}
+
+.kicker:before{
+  content:"";
+  width:42px;
+  height:1px;
+  background:var(--gold-bright);
+  display:block;
+}
+
+.intro h1{
+  font-family:"Cormorant Garamond",serif;
+  font-size:76px;
+  line-height:.9;
+  letter-spacing:-.045em;
+  font-weight:500;
+  margin:34px 0 38px;
+}
+
+.intro h1 em{
+  display:block;
+  color:var(--gold);
+  font-style:italic;
+}
+
+.gold-rule{
+  width:48px;
+  height:1px;
+  background:var(--gold);
+  margin-bottom:34px;
+}
+
+.intro p{
+  max-width:292px;
+  font-size:17px;
+  line-height:1.75;
+  color:var(--muted);
+  font-weight:300;
+}
+
+.member-count{
+  margin-top:42px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:18px;
+  color:var(--gold-bright);
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  font-size:13px;
+}
+
+.member-count span:first-child{
+  font-family:"Cormorant Garamond",serif;
+  font-size:30px;
+  letter-spacing:0;
+}
+
+.member-count span:last-child{
+  margin-left:auto;
+  font-size:22px;
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  align-content:start;
+}
+
+.member-card{
+  min-height:226px;
+  padding:32px 34px 28px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(217,168,93,.12), transparent 28%),
+    linear-gradient(145deg, rgba(255,255,255,.035), rgba(0,0,0,.08)),
+    rgba(36,24,11,.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 18px 45px rgba(0,0,0,.16);
+  position:relative;
+}
+
+.initial{
+  width:54px;
+  height:54px;
+  border-radius:999px;
+  border:1px solid rgba(240,195,107,.58);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:"Cormorant Garamond",serif;
+  font-size:31px;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,244,228,.22), transparent 28%),
+    linear-gradient(145deg,#5A351A,#1A1008);
+  color:#FFF4E4;
+  margin-bottom:24px;
+}
+
+.role{
+  font-size:10px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#EEA85F;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+.member-card h3{
+  margin:0;
+  font-family:"Cormorant Garamond",serif;
+  font-size:34px;
+  font-weight:500;
+  letter-spacing:-.02em;
+}
+
+.mini-rule{
+  width:34px;
+  height:1px;
+  background:var(--gold);
+  margin:12px 0 15px;
+}
+
+.member-card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+  max-width:260px;
+}
+
+.tags{
+  margin-top:20px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  color:#A78F70;
+  font-size:10px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+
+.tags span:before{
+  content:"•";
+  color:var(--gold);
+  margin-right:8px;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero{
+  position:relative;
+  min-height:620px;
+  display:grid;
+  grid-template-columns:61% 39%;
+  padding:72px 74px;
+  overflow:hidden;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(18,12,6,.98) 0%,rgba(18,12,6,.62) 32%,rgba(18,12,6,.12) 57%,rgba(18,12,6,.75) 100%),
+    linear-gradient(180deg,rgba(61,46,16,.15),rgba(5,3,2,.68)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1800&auto=format&fit=crop");
+  background-size:cover;
+  background-position:center;
+  filter:saturate(.82) contrast(1.05) brightness(.72);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 47% 44%, rgba(217,168,93,.22), transparent 22%);
+  pointer-events:none;
+}
+
+.hero-copy,.booking-card{position:relative;z-index:2}
+
+.hero-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-top:16px;
+}
+
+.hero-copy .kicker{
+  margin-bottom:28px;
+}
+
+.hero-copy h2{
+  margin:0;
+  max-width:600px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:104px;
+  line-height:.88;
+  letter-spacing:-.055em;
+  font-weight:500;
+  text-shadow:0 20px 60px rgba(0,0,0,.36);
+}
+
+.hero-line{
+  width:58px;
+  height:2px;
+  background:var(--gold);
+  margin:34px 0 24px;
+}
+
+.hero-sub{
+  font-size:20px;
+  color:#F2E5D5;
+  margin-bottom:34px;
+}
+
+.cta{
+  width:max-content;
+  height:58px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  border:1px solid rgba(240,195,107,.55);
+  border-radius:10px;
+  padding:0 28px;
+  background:rgba(0,0,0,.18);
+  color:var(--gold-bright);
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  backdrop-filter:blur(10px);
+}
+
+.play{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  border:1px solid var(--gold-bright);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:12px;
+}
+
+.booking-card{
+  align-self:center;
+  justify-self:end;
+  width:430px;
+  border:1px solid rgba(217,168,93,.34);
+  border-radius:22px;
+  padding:34px 34px 30px;
+  background:
+    radial-gradient(circle at 20% 8%, rgba(217,168,93,.1), transparent 30%),
+    rgba(24,15,7,.78);
+  box-shadow:0 30px 80px rgba(0,0,0,.42);
+  backdrop-filter:blur(22px);
+}
+
+.booking-head{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.bell{
+  width:46px;
+  height:46px;
+  border-radius:999px;
+  border:1px solid rgba(217,168,93,.55);
+  color:var(--gold-bright);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.booking-card h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:42px;
+  letter-spacing:-.03em;
+  font-weight:500;
+  margin:0;
+}
+
+.form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px 18px;
+}
+
+.field label{
+  display:block;
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#F5E0BC;
+  margin-bottom:10px;
+}
+
+.input{
+  height:52px;
+  border:1px solid rgba(255,244,228,.18);
+  border-radius:8px;
+  padding:0 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#CDBDA6;
+  background:rgba(255,255,255,.035);
+  font-size:14px;
+}
+
+.button{
+  margin-top:24px;
+  height:56px;
+  width:100%;
+  border:0;
+  border-radius:8px;
+  background:linear-gradient(90deg,#C98332,#E4B763);
+  color:#2B1908;
+  font-family:"Cormorant Garamond",serif;
+  font-size:25px;
+  font-weight:600;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:36px;
+}
+
+.perks{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,244,228,.14);
+  padding-top:22px;
+}
+
+.perk{
+  text-align:center;
+  border-right:1px solid rgba(255,244,228,.14);
+  min-height:70px;
+}
+
+.perk:last-child{border-right:0}
+
+.perk-icon{
+  color:var(--gold-bright);
+  font-size:24px;
+  margin-bottom:9px;
+}
+
+.perk p{
+  margin:0;
+  color:#D9C7AD;
+  font-size:10px;
+  letter-spacing:.16em;
+  line-height:1.45;
+  text-transform:uppercase;
+}
+
+@media(max-width:900px){
+  body{min-width:0}
+  .page{width:100%}
+  .team-section,.hero{grid-template-columns:1fr;padding:36px}
+  .team-grid{grid-template-columns:1fr}
+  .hero-copy h2{font-size:68px}
+  .booking-card{width:100%;justify-self:stretch;margin-top:50px}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <section class="team-section">
+    <div class="intro">
+      <div class="kicker">Our People</div>
+      <h1>Get to Know <em>Our Team</em></h1>
+      <div class="gold-rule"></div>
+      <p>Crafted by people who care, delivered with grace. Every stay is backed by a dedicated team with decades of hospitality and operations expertise.</p>
+      <div class="member-count"><span>6</span><span>Team Members</span><span>→</span></div>
+    </div>
+
+    <div class="team-grid">
+      <article class="member-card">
+        <div class="initial">M</div>
+        <div class="role">Technology & Operations</div>
+        <h3>Manny</h3>
+        <div class="mini-rule"></div>
+        <p>Brings 20+ years of IT expertise and hands-on vacation rental management.</p>
+        <div class="tags"><span>IT</span><span>Rental Management</span></div>
+      </article>
+
+      <article class="member-card">
+        <div class="initial">A</div>
+        <div class="role">Sales & Marketing</div>
+        <h3>Annie</h3>
+        <div class="mini-rule"></div>
+        <p>Passionate about travel, handling sales and marketing with a personal touch.</p>
+        <div class="tags"><span>Sales</span><span>Guest Relations</span></div>
+      </article>
+
+      <article class="member-card">
+        <div class="initial">J</div>
+        <div class="role">Strategy & Leadership</div>
+        <h3>Jenny</h3>
+        <div class="mini-rule"></div>
+        <p>A strategic leader with 15+ years of experience across diverse industries.</p>
+        <div class="tags"><span>Strategy</span><span>Leadership</span></div>
+      </article>
+
+      <article class="member-card">
+        <div class="initial">R</div>
+        <div class="role">Travel & Guest Experience</div>
+        <h3>Rajiv</h3>
+        <div class="mini-rule"></div>
+        <p>A seasoned travel professional focused on sales and guest relationships.</p>
+        <div class="tags"><span>Sales</span><span>Guest Relations</span></div>
+      </article>
+
+      <article class="member-card">
+        <div class="initial">R</div>
+        <div class="role">Rentals & Operations</div>
+        <h3>Richa</h3>
+        <div class="mini-rule"></div>
+        <p>Keeps everything running smoothly, managing rentals and operations behind the scenes.</p>
+        <div class="tags"><span>Operations</span><span>Rentals</span></div>
+      </article>
+
+      <article class="member-card">
+        <div class="initial">T</div>
+        <div class="role">Property & Construction</div>
+        <h3>Trevor</h3>
+        <div class="mini-rule"></div>
+        <p>Leads property operations and construction with deep industry experience.</p>
+        <div class="tags"><span>Operations</span><span>Construction</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="kicker">Welcome to LuxuryStay</div>
+      <h2>Your Getaway Starts Here</h2>
+      <div class="hero-line"></div>
+      <p class="hero-sub">You have to experience it to believe it.</p>
+      <div class="cta"><span class="play">▷</span>Explore Our Collection</div>
+    </div>
+
+    <aside class="booking-card">
+      <div class="booking-head">
+        <div class="bell">♙</div>
+        <h3>Reserve Your Stay</h3>
+      </div>
+
+      <div class="form">
+        <div class="field">
+          <label>Check-In</label>
+          <div class="input"><span>Select date</span><span>▣</span></div>
+        </div>
+        <div class="field">
+          <label>Check-Out</label>
+          <div class="input"><span>Select date</span><span>▣</span></div>
+        </div>
+        <div class="field">
+          <label>Guests</label>
+          <div class="input"><span>♙ 1 Adult</span><span>⌄</span></div>
+        </div>
+        <div class="field">
+          <label>Pets</label>
+          <div class="input"><span>♧ No Pets</span><span>⌄</span></div>
+        </div>
+      </div>
+
+      <button class="button">Check Availability <span>→</span></button>
+
+      <div class="perks">
+        <div class="perk"><div class="perk-icon">♢</div><p>Best Price<br>Guarantee</p></div>
+        <div class="perk"><div class="perk-icon">♕</div><p>Exclusive<br>Experiences</p></div>
+        <div class="perk"><div class="perk-icon">☏</div><p>24/7 Guest<br>Support</p></div>
+      </div>
+    </aside>
+  </section>
+
+</div>
+</body>
+</html>
