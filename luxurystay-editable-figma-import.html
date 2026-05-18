@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LuxuryStay Editable Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--ivory:#F5EFE6;--cream:#EEE4D5;--sand:#D9C8B3;--espresso:#1C1712;--brown:#2B1E15;--gold:#B98B52;--soft-gold:#D8B77A;--line:#D8CDBD;--stone:#8C8176;--olive:#C7D13B;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);color:var(--espresso);font-family:Inter,Arial,sans-serif}
+.page{width:1200px;margin:0 auto;background:var(--ivory);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+section{border-bottom:1px solid var(--line)}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500;margin:0;letter-spacing:-.04em}
+p{margin:0;line-height:1.6;font-size:16px}
+.label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.num{font-size:12px;font-weight:700;margin-right:34px}
+.accent{color:var(--gold);font-style:italic}
+.hero{min-height:530px;display:grid;grid-template-columns:42% 58%;padding:60px;background:linear-gradient(115deg,#FBF6EF 0%,#EFE3D4 54%,#2A1D14 100%)}
+.hero h1{font-size:112px;line-height:.86;margin-top:46px}
+.hero h1 span{color:var(--gold)}
+.hero-copy{max-width:390px;margin-top:30px;font-size:17px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:72px}
+.meta-item{display:grid;gap:9px}.meta-title{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}.meta-icon{width:28px;height:28px;border:1.5px solid var(--espresso);border-radius:50%;display:grid;place-items:center}.meta-text{font-size:12px;line-height:1.35}
+.devices{position:relative;display:flex;align-items:center;justify-content:center}.laptop{width:640px;height:380px;background:#151515;border-radius:24px;padding:16px;box-shadow:0 34px 70px rgba(0,0,0,.28)}
+.screen{height:100%;border-radius:14px;background:linear-gradient(rgba(28,23,18,.12),rgba(28,23,18,.45)),linear-gradient(135deg,#B98048,#1C1712);padding:24px;color:white;position:relative;overflow:hidden}
+.sunset{position:absolute;inset:70px 0 auto 0;height:110px;background:linear-gradient(90deg,#9C5C38,#D7A063,#4B3324);opacity:.8}
+.house{position:absolute;left:150px;top:110px;width:230px;height:82px;background:#352318;border-radius:10px 10px 0 0}.house:before{content:"";position:absolute;left:-15px;top:-34px;border-left:130px solid transparent;border-right:130px solid transparent;border-bottom:42px solid #5D3A26}
+.screen-title{position:relative;z-index:2;margin-top:72px;font-size:52px;line-height:.95;max-width:300px;font-family:"Cormorant Garamond",serif}
+.search{position:absolute;left:26px;right:26px;bottom:24px;z-index:3;height:52px;border-radius:999px;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:space-around;color:var(--espresso);font-size:10px}
+.phone{width:150px;height:300px;border-radius:28px;background:#111;padding:10px;position:absolute;right:0;bottom:44px;box-shadow:0 26px 50px rgba(0,0,0,.35)}.phone-screen{height:100%;border-radius:20px;background:linear-gradient(160deg,#F7F0E7,#3B2518 42%,#0F0B08);color:white;padding:18px 12px;display:flex;align-items:flex-end;font-family:"Cormorant Garamond",serif;font-size:25px;line-height:.95}
+.story{display:grid;grid-template-columns:42% 38% 20%;gap:42px;align-items:center;padding:54px}.story h2{font-size:48px;line-height:.95}.section-label{display:flex;align-items:center;margin-bottom:34px}.botanical{height:150px;opacity:.55;position:relative}.botanical:before,.botanical:after{content:"";position:absolute;width:1px;height:120px;background:var(--stone);transform:rotate(28deg);left:50%;top:20px}.botanical:after{transform:rotate(-42deg);height:85px;left:62%;top:44px}
+.problem-process{display:grid;grid-template-columns:38% 62%}.problem{background:var(--brown);color:var(--ivory);padding:50px 56px}.problem h2{font-size:42px;line-height:1;margin:30px 0 22px}.problem p{color:var(--sand);font-size:14px}
+.process{padding:50px 56px;display:grid;grid-template-columns:42% 29% 29%;gap:28px;align-items:center}.process h2{font-size:38px;line-height:.95;margin:28px 0 18px}.paper{height:210px;background:#F8F6F1;border:1px solid var(--line);box-shadow:0 8px 20px rgba(0,0,0,.08);padding:20px}.paper div{height:5px;background:#C9BEB0;margin-bottom:10px;width:88%}.wire{height:230px;background:#252A30;padding:18px;display:grid;gap:10px}.wire div{border:1px solid #AEB4BD}
+.wireframes{display:grid;grid-template-columns:34% 18% 48%;gap:34px;padding:56px;align-items:start}.wireframes p{max-width:210px}.wire-column{height:510px;background:#252A30;padding:18px;display:grid;gap:12px}.wire-column div{border:1px solid #AEB4BD}.features{display:grid;gap:38px;padding-top:60px}.feature-icon{width:54px;height:54px;border-radius:14px;background:#E8DDCE;display:grid;place-items:center;color:var(--gold);font-size:24px;margin-bottom:12px}.feature h4{margin:0 0 8px;font-size:15px}.feature p{font-size:12px;color:#4B3324}
+.visual{display:grid;grid-template-columns:36% 64%;gap:48px;padding:56px}.visual h2{font-size:48px;line-height:1;margin:28px 0 22px}.explore-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}.mini{min-height:150px;border-radius:12px;overflow:hidden;background:var(--brown);border:1px solid var(--line);padding:18px;color:white}.mini.light{background:#F7F0E7;color:var(--espresso)}.mini.gold{background:#C78C1A;color:var(--espresso)}.mini h3{font-family:Inter,sans-serif;font-size:34px;letter-spacing:-.08em;font-weight:700}.mini-img{height:65px;border-radius:10px;margin-top:18px;background:linear-gradient(135deg,#9B6B43,#2B1E15)}
+.final{display:grid;grid-template-columns:30% 70%;gap:38px;padding:56px}.final h2{font-size:48px;line-height:1;margin:24px 0 32px}.highlights{display:grid;gap:22px}.highlight{display:grid;grid-template-columns:38px 1fr;gap:14px}.highlight-icon{width:30px;height:30px;border-radius:8px;background:#E8DDCE;display:grid;place-items:center;color:var(--gold)}.highlight h4{margin:0;font-size:14px}.highlight p{font-size:12px;color:#4B3324}
+.screens{display:grid;grid-template-columns:32% 32% 32%;gap:18px}.long-screen,.map-screen{height:540px;border-radius:18px;background:var(--brown);padding:16px;box-shadow:0 18px 50px rgba(0,0,0,.12);display:grid;gap:12px}.long-screen.light{background:#F9F3EA}.img-box{border-radius:12px;background:linear-gradient(135deg,#A67242,#1C1712)}.hero-img{height:130px}.small-img{height:80px}.line{height:9px;background:rgba(255,255,255,.26);border-radius:999px}.light .line{background:rgba(28,23,18,.18)}.map-screen{grid-template-rows:70px 1fr 80px;color:var(--ivory)}.map{background:#EEE9E0;border-radius:12px;position:relative}.map:before{content:"";position:absolute;inset:30px;border:2px dashed #86B4BC;border-radius:40%}
+.reflection{display:grid;grid-template-columns:32% 45% 23%}.reflection-left{padding:56px;background:#F8F2EA}.reflection-left h2{font-size:46px;margin-top:40px}.learning-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line);border-right:1px solid var(--line)}.learning{padding:82px 34px 40px;border-right:1px solid var(--line)}.learning:last-child{border-right:none}.learning-icon{color:var(--gold);font-size:28px;margin-bottom:36px}.learning h4{margin:0 0 14px;font-size:14px}.learning p{font-size:12px;color:#4B3324}.quote{background:var(--brown);color:var(--soft-gold);padding:58px 44px;display:flex;flex-direction:column;justify-content:center}.quote-mark{font-family:"Cormorant Garamond",serif;font-size:74px;line-height:.5}.quote p{font-family:"Cormorant Garamond",serif;font-size:26px;line-height:1.2}
+@media(max-width:900px){.page{width:100%}.hero,.story,.problem-process,.visual,.final,.reflection{grid-template-columns:1fr}.process,.wireframes{grid-template-columns:1fr}.hero h1{font-size:78px}.laptop{width:100%;height:320px}.phone{display:none}.screens{grid-template-columns:1fr}.meta{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="page">
+
+<section class="hero">
+<div>
+<div class="label">UX Case Study</div>
+<h1>Luxury<span>Stay</span></h1>
+<p class="hero-copy">Designing a luxury stay booking experience that feels immersive, cinematic, and emotionally aspirational.</p>
+<div class="meta">
+<div class="meta-item"><div class="meta-title">Role</div><div class="meta-icon">◎</div><div class="meta-text">UX/UI Designer</div></div>
+<div class="meta-item"><div class="meta-title">Tools</div><div class="meta-icon">◇</div><div class="meta-text">Figma</div></div>
+<div class="meta-item"><div class="meta-title">Focus</div><div class="meta-icon">✦</div><div class="meta-text">Hospitality / Editorial UX</div></div>
+<div class="meta-item"><div class="meta-title">Timeline</div><div class="meta-icon">◷</div><div class="meta-text">4 Weeks</div></div>
+</div>
+</div>
+<div class="devices"><div class="laptop"><div class="screen"><div class="sunset"></div><div class="house"></div><div class="screen-title">Find stays that feel like you.</div><div class="search"><span>Location</span><span>Check-in</span><span>Guests</span><span>Search</span></div></div></div><div class="phone"><div class="phone-screen">The Comfort You Deserve</div></div></div>
+</section>
+
+<section class="story">
+<div><div class="section-label"><span class="num">01</span><span class="label">The Story</span></div><h2>Booking a stay should feel like entering the <span class="accent">experience</span> before arriving.</h2></div>
+<p>LuxuryStay explores how a travel booking website can move beyond basic listings and filters to create a more emotional, visual, and premium discovery experience.</p>
+<div class="botanical"></div>
+</section>
+
+<section class="problem-process">
+<div class="problem"><div class="section-label"><span class="num">02</span><span class="label">The Problem</span></div><h2>Most hotel booking websites feel functional but emotionally flat.</h2><p>They help users compare rooms, but rarely evoke the experience of the stay.</p></div>
+<div class="process"><div><div class="section-label"><span class="num">03</span><span class="label">The Process</span></div><h2>Mapping the experience before styling it</h2><p>I started with rough notes and low-fidelity wireframes to understand the page hierarchy, booking flow, and storytelling rhythm.</p></div><div class="paper"><div></div><div></div><div></div><div></div><div></div><div></div></div><div class="wire"><div></div><div></div><div></div><div></div></div></div>
+</section>
+
+<section class="wireframes">
+<div><div class="section-label"><span class="num">04</span><span class="label">Wireframes</span></div><p>Low-fidelity wireframes helped me focus on structure, hierarchy, and user flow before visual design.</p></div>
+<div class="wire-column"><div></div><div></div><div></div><div></div><div></div></div>
+<div class="features"><div class="feature"><div class="feature-icon">▵</div><h4>Immersive hero section</h4><p>A large visual space to create the first emotional connection.</p></div><div class="feature"><div class="feature-icon">⌕</div><h4>Simplified booking search</h4><p>Easy-to-scan booking bar for a smooth planning experience.</p></div><div class="feature"><div class="feature-icon">▦</div><h4>Story-led content blocks</h4><p>Content sections that build trust and inspire users to explore more.</p></div></div>
+</section>
+
+<section class="visual">
+<div><div class="section-label"><span class="num">05</span><span class="label">Visual Exploration</span></div><h2>Finding the right <span class="accent">mood</span></h2><p>I explored different visual directions — from lighter hospitality layouts to darker, warmer, more cinematic compositions. The final direction leaned into deep browns, warm gold, and large imagery to feel more premium.</p></div>
+<div class="explore-grid"><div class="mini"><h3>luxurystay</h3><div class="mini-img"></div></div><div class="mini light"><h3>luxurystay</h3><div class="mini-img"></div></div><div class="mini gold"><h3>luxurystay</h3><div class="mini-img"></div></div><div class="mini"><div class="mini-img"></div><p style="font-size:13px;margin-top:14px">The comfort you deserve</p></div></div>
+</section>
+
+<section class="final">
+<div><div class="section-label"><span class="num">06</span><span class="label">The Final Design</span></div><h2>A cinematic experience that <span class="accent">inspires</span> and <span class="accent">simplifies</span>.</h2>
+<div class="highlights"><div class="highlight"><div class="highlight-icon">▧</div><div><h4>Hero Storytelling</h4><p>Large visuals and minimal text create an instant emotional impact.</p></div></div><div class="highlight"><div class="highlight-icon">♡</div><div><h4>Curated Discovery</h4><p>Rooms, amenities, and spaces presented in an editorial way.</p></div></div><div class="highlight"><div class="highlight-icon">♢</div><div><h4>Trust & Comfort</h4><p>Reviews, facilities, and host information build confidence.</p></div></div><div class="highlight"><div class="highlight-icon">⌖</div><div><h4>Location & Access</h4><p>Clear location section and map help users feel oriented.</p></div></div></div></div>
+<div class="screens"><div class="long-screen"><div class="img-box hero-img"></div><div class="line"></div><div class="line" style="width:70%"></div><div class="img-box small-img"></div><div class="img-box small-img"></div><div class="line" style="width:55%"></div></div><div class="long-screen light"><div class="img-box small-img"></div><div class="img-box small-img"></div><div class="img-box small-img"></div><div class="img-box hero-img"></div><div class="line"></div><div class="line" style="width:60%"></div></div><div class="map-screen"><div><h3 style="font-size:26px;line-height:1">See, Visit Us!</h3></div><div class="map"></div><div><div class="line"></div><div class="line" style="width:70%;margin-top:10px"></div></div></div></div>
+</section>
+
+<section class="reflection">
+<div class="reflection-left"><div class="section-label"><span class="num">07</span><span class="label">Reflection</span></div><h2>What I <span class="accent">learned</span></h2></div>
+<div class="learning-grid"><div class="learning"><div class="learning-icon">☆</div><h4>Less is more.</h4><p>Luxury UX is about pacing, restraint, and emotional atmosphere.</p></div><div class="learning"><div class="learning-icon">◉</div><h4>Visuals lead the emotion.</h4><p>Imagery, color, and typography help users imagine the experience.</p></div><div class="learning"><div class="learning-icon">◎</div><h4>Design with intention.</h4><p>Every section was designed to inform, build trust, or inspire exploration.</p></div></div>
+<div class="quote"><div class="quote-mark">“</div><p>This project strengthened my belief that good design doesn’t just help users book a stay, it helps them feel it.</p></div>
+</section>
+
+</main>
+</body>
+</html>
